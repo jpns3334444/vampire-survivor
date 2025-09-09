@@ -1,9 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dujko6qhv3h44"]
+[gd_scene load_steps=10 format=3 uid="uid://dujko6qhv3h44"]
 
 [ext_resource type="Script" uid="uid://caqtptgaoi64s" path="res://scripts/survivors_game.gd" id="1_85uov"]
+[ext_resource type="Texture2D" uid="uid://bsx36ys37np1l" path="res://assets/ui/xp_bar_background.png" id="2_4bwrk"]
 [ext_resource type="PackedScene" uid="uid://g15nirwwfyge" path="res://scenes/player.tscn" id="2_uhra2"]
+[ext_resource type="Texture2D" uid="uid://dk0sqkhyi0g5p" path="res://assets/ui/xp_bar_fill.png" id="3_5beo8"]
 [ext_resource type="PackedScene" uid="uid://b0qthmyge6sp8" path="res://scenes/tree.tscn" id="3_t6sgc"]
 [ext_resource type="PackedScene" uid="uid://dxispxmtl7bn4" path="res://scenes/mob_spawner.tscn" id="4_uhra2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t6sgc"]
+texture = ExtResource("2_4bwrk")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bwrk"]
+texture = ExtResource("3_5beo8")
 
 [sub_resource type="Curve2D" id="Curve2D_rjw37"]
 _data = {
@@ -19,11 +29,23 @@ script = ExtResource("1_85uov")
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1928.0
-offset_bottom = 1088.0
+offset_right = 654.0
+offset_bottom = 489.0
+
+[node name="XPBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 643.0
+offset_bottom = 41.0
+theme_override_styles/background = SubResource("StyleBoxTexture_t6sgc")
+theme_override_styles/fill = SubResource("StyleBoxTexture_4bwrk")
+max_value = 5.0
+step = 1.0
+value = 3.0
+show_percentage = false
 
 [node name="Player" parent="." instance=ExtResource("2_uhra2")]
-position = Vector2(591, 235)
+position = Vector2(327, 304)
 
 [node name="Path2D" type="Path2D" parent="Player"]
 curve = SubResource("Curve2D_rjw37")
@@ -34,17 +56,7 @@ position = Vector2(-1226, -606)
 rotation = -0.165915
 
 [node name="PineTree" parent="." instance=ExtResource("3_t6sgc")]
-position = Vector2(1049, 935)
-
-[node name="PineTree2" parent="." instance=ExtResource("3_t6sgc")]
-position = Vector2(1415, 514)
-
-[node name="PineTree3" parent="." instance=ExtResource("3_t6sgc")]
-position = Vector2(1304, 404)
-
-[node name="PineTree4" parent="." instance=ExtResource("3_t6sgc")]
-position = Vector2(307, 842)
-rotation = -0.0188723
+position = Vector2(863, 218)
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

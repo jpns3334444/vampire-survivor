@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhsswfdrwl8uv"
-path="res://.godot/imported/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.ctex"
+uid="uid://mru2yyqi6g4w"
+path="res://.godot/imported/[SHOOT WITH CASING] FULL AUTO Submachine - MP5A3.png-caee74cd2cf67d6e6437eea9b93eb135.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon.png"
-dest_files=["res://.godot/imported/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.ctex"]
+source_file="res://assets/pistol/guns/02 - Sprite sheets/Submachine - MP5A3 [80x48]/Full auto/[SHOOT WITH CASING] FULL AUTO Submachine - MP5A3.png"
+dest_files=["res://.godot/imported/[SHOOT WITH CASING] FULL AUTO Submachine - MP5A3.png-caee74cd2cf67d6e6437eea9b93eb135.ctex"]
 
 [params]
 
