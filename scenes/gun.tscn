@@ -106,7 +106,7 @@ position = Vector2(33, 14)
 scale = Vector2(0.3, 0.34)
 sprite_frames = SubResource("SpriteFrames_gvx52")
 animation = &"empty"
-frame_progress = 0.373714
+frame_progress = 0.881305
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
 unique_name_in_owner = true

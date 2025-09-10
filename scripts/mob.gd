@@ -5,6 +5,7 @@ signal mob_death
 @export var mob_xp: int = 1.0
 @export var health: int = 10.0
 @export var move_speed: int = 200
+var last_direction = "down"
 
 @onready var player = $/root/Game/Player
 var last_dir := "down"
@@ -18,30 +19,30 @@ func _physics_process(delta: float) -> void:
 	velocity = dir * move_speed
 	move_and_slide()
 
-	# choose animation
-	if velocity.length() > 0.1:
-		var d := _four_dir_from_vector(velocity)
-		if d != last_dir:
-			last_dir = d
-		_play("walk_" + d)
+	var new_animation = ""
+	
+	if velocity.length() > 0:
+		if abs(velocity.x) > abs(velocity.y):
+			if velocity.x > 0:
+				new_animation = "walk_right"
+				last_direction = "right"
+			else:
+				new_animation = "walk_left"
+				last_direction = "left"
+		else:
+			if velocity.y > 0:
+				new_animation = "walk_down"
+				last_direction = "down"
+			else:
+				new_animation = "walk_up"
+				last_direction = "up"
 	else:
-		_play("idle_" + last_dir)
-
-func _four_dir_from_vector(v: Vector2) -> String:
-	# Godot angles: 0=right, +PI/2=down
-	var a := atan2(v.y, v.x)
-	if a > -PI/4 and a <= PI/4:
-		return "right"
-	elif a > PI/4 and a <= 3*PI/4:
-		return "down"
-	elif a <= -PI/4 and a > -3*PI/4:
-		return "up"
-	else:
-		return "left"
-		
-func _play(name: String) -> void:
-	if %BlueRobot.animation != name:
-		%BlueRobot.play(name)
+		# Use the last direction for idle animation
+		new_animation = "idle_" + last_direction
+	
+	# Only play if it's a different animation
+	if %BlueRobot.animation != new_animation:
+		%BlueRobot.play(new_animation)
 		
 func take_damage():
 	health -= 1
