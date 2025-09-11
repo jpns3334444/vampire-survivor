@@ -9,6 +9,7 @@ var current_xp = 0
 @export var move_speed: float = 500.0
 @export var max_health: float = 100.0
 @export var xp_multiplier: float = 1.0
+@export var attack_speed: float = 1.0  # New stat (multiplier)
 
 func _ready():
 	%Mayor.play("idle")
@@ -42,8 +43,8 @@ func _physics_process(delta):
 
 
 func add_xp(amount: int):
-	var XPBar = get_tree().get_root().get_node("Game/CanvasLayer/XPBar")
-	var Level = get_tree().get_root().get_node("Game/CanvasLayer/Level")
+	var XPBar = get_tree().get_root().get_node("Game/HUD/XPBar")
+	var Level = get_tree().get_root().get_node("Game/HUD/Level")
 	current_xp += amount * xp_multiplier
 	while current_xp >= XPBar.max_value:
 		player_level += 1

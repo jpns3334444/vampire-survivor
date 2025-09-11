@@ -1,95 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxlr7ph2x8v5k"]
+[gd_scene load_steps=4 format=3 uid="uid://bxlr7ph2x8v5k"]
 
 [ext_resource type="Script" uid="uid://bbrej68gfidbr" path="res://scripts/gun.gd" id="1_og67c"]
-[ext_resource type="Texture2D" uid="uid://cutact704celg" path="res://assets/pistol/guns/02 - Sprite sheets/AK 47 [96x48]/[EMPTY] AK 47.png" id="2_og67c"]
+[ext_resource type="Texture2D" uid="uid://cjj4v8rwlnrwo" path="res://assets/Stranded 04 - Hero sprite/Guns/gun1.png" id="2_og67c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
 radius = 388.012
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gp1hk"]
-atlas = ExtResource("2_og67c")
-region = Rect2(96, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qd4js"]
-atlas = ExtResource("2_og67c")
-region = Rect2(192, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6b133"]
-atlas = ExtResource("2_og67c")
-region = Rect2(288, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_haq8l"]
-atlas = ExtResource("2_og67c")
-region = Rect2(384, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bmp1f"]
-atlas = ExtResource("2_og67c")
-region = Rect2(480, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6oi81"]
-atlas = ExtResource("2_og67c")
-region = Rect2(576, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5lyo6"]
-atlas = ExtResource("2_og67c")
-region = Rect2(672, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lu2bp"]
-atlas = ExtResource("2_og67c")
-region = Rect2(768, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hbmn"]
-atlas = ExtResource("2_og67c")
-region = Rect2(864, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4fxfn"]
-atlas = ExtResource("2_og67c")
-region = Rect2(960, 0, 96, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rrmri"]
-atlas = ExtResource("2_og67c")
-region = Rect2(1056, 0, 96, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gvx52"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gp1hk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qd4js")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6b133")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_haq8l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bmp1f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6oi81")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5lyo6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lu2bp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6hbmn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4fxfn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rrmri")
-}],
-"loop": true,
-"name": &"empty",
-"speed": 10.0
-}]
 
 [node name="Gun" type="Area2D"]
 collision_layer = 0
@@ -101,19 +16,17 @@ shape = SubResource("CircleShape2D_dk5gl")
 
 [node name="WeaponPivot" type="Marker2D" parent="."]
 
-[node name="Pistol" type="AnimatedSprite2D" parent="WeaponPivot"]
-position = Vector2(33, 14)
-scale = Vector2(0.3, 0.34)
-sprite_frames = SubResource("SpriteFrames_gvx52")
-animation = &"empty"
-frame_progress = 0.881305
+[node name="Gun1" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(9, -3)
+texture = ExtResource("2_og67c")
 
-[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Gun1"]
 unique_name_in_owner = true
-position = Vector2(16.6667, -14.7059)
+position = Vector2(6, -1)
+scale = Vector2(0.3, 0.34)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.168
+wait_time = 0.416
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

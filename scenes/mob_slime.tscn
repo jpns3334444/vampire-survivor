@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://c75h0hxws8tu1"]
 
 [ext_resource type="Script" uid="uid://cols3mjtd2tg5" path="res://scripts/mob.gd" id="1_bsing"]
-[ext_resource type="Texture2D" uid="uid://btf2qhea215yn" path="res://assets/tiny_dungeon/Tiles/tile_0096.png" id="2_0gehn"]
+[ext_resource type="Texture2D" path="res://assets/tiny_dungeon/Tiles/tile_0096.png" id="2_0gehn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ubaqv"]
 radius = 12.0
@@ -246,7 +246,7 @@ collision_layer = 2
 collision_mask = 3
 platform_floor_layers = 4294967040
 script = ExtResource("1_bsing")
-mob_xp = 3
+health = 2
 move_speed = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

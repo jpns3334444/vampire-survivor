@@ -1,5 +1,15 @@
 extends Area2D
 
+@onready var player = get_parent()  # Assuming gun is child of player
+var base_fire_rate = 0.5  # Base time between shots
+
+func _ready():
+	update_fire_rate()
+	
+func update_fire_rate():
+	# Update timer based on player's attack speed
+	$Timer.wait_time = base_fire_rate / player.attack_speed
+
 func _physics_process(delta: float) -> void:
 	var enemies_in_range = get_overlapping_bodies()
 	if enemies_in_range.size() > 0:
