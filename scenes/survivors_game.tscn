@@ -9,11 +9,9 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t6sgc"]
 texture = ExtResource("2_4bwrk")
-axis_stretch_horizontal = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4bwrk"]
 texture = ExtResource("3_5beo8")
-axis_stretch_horizontal = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5beo8"]
 texture = ExtResource("4_4bwrk")
@@ -167,16 +165,24 @@ script = ExtResource("1_85uov")
 layer = 0
 
 [node name="XPBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 68.0
-offset_top = 1.0
-offset_right = 705.0
-offset_bottom = 24.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_right = -10.0
+offset_bottom = 20.0
+grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxTexture_t6sgc")
 theme_override_styles/fill = SubResource("StyleBoxTexture_4bwrk")
 max_value = 5.0
 step = 1.0
 value = 3.0
 show_percentage = false
+
+[node name="Level" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "1"
+horizontal_alignment = 1
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -3

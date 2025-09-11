@@ -6,9 +6,7 @@ var counter = 0
 @export var wait_time: float = 0.3
 
 @export var mob_scenes = {
-	"slime": preload("res://scenes/mob_slime.tscn"),
-	"goblin": preload("res://scenes/mob_goblin.tscn"),
-	"orc": preload("res://scenes/mob_orc.tscn")
+	"slime": preload("res://scenes/mob_slime.tscn")
 }
 
 func spawn_mob(mob_type, num_mobs, wait_time):

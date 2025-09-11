@@ -43,10 +43,12 @@ func _physics_process(delta):
 
 func add_xp(amount: int):
 	var XPBar = get_tree().get_root().get_node("Game/CanvasLayer/XPBar")
+	var Level = get_tree().get_root().get_node("Game/CanvasLayer/Level")
 	current_xp += amount * xp_multiplier
 	while current_xp >= XPBar.max_value:
 		player_level += 1
 		level_up.emit(player_level)
+		Level.text = str(player_level)
 		current_xp = current_xp - XPBar.max_value
 		XPBar.max_value = player_level * player_level * 2
 	XPBar.value = current_xp
