@@ -1,9 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://g15nirwwfyge"]
+[gd_scene load_steps=7 format=3 uid="uid://g15nirwwfyge"]
 
 [ext_resource type="Script" uid="uid://d0irtv86huiiv" path="res://scripts/player.gd" id="1_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://bw2hmhwskkmm4" path="res://assets/characters/mayor/mayor_idle_strip4.png" id="3_fjrip"]
 [ext_resource type="PackedScene" uid="uid://bxlr7ph2x8v5k" path="res://scenes/gun.tscn" id="3_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://j25mypjb48tr" path="res://assets/characters/mayor/mayor_walk_right_strip8.png" id="6_y4r1p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3v2ag"]
 radius = 7.0
@@ -26,112 +24,12 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
-atlas = ExtResource("3_fjrip")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
-atlas = ExtResource("3_fjrip")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
-atlas = ExtResource("3_fjrip")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
-atlas = ExtResource("3_fjrip")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_487ah"]
-atlas = ExtResource("6_y4r1p")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_md1ol"]
-atlas = ExtResource("6_y4r1p")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
-atlas = ExtResource("6_y4r1p")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
-atlas = ExtResource("6_y4r1p")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
-atlas = ExtResource("6_y4r1p")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4otl"]
-atlas = ExtResource("6_y4r1p")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2b1d"]
-atlas = ExtResource("6_y4r1p")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cs1tg"]
-atlas = ExtResource("6_y4r1p")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u2ulf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jej6c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f1ej7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oprun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a8ls1")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_487ah")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_md1ol")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bj30b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jc3p3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hax0n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t4otl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j2b1d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cs1tg")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
 [node name="Player" type="CharacterBody2D"]
 platform_floor_layers = 4294967040
 script = ExtResource("1_qhqgy")
-move_speed = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3v2ag")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("3_i3pqv")]
 position = Vector2(2, -29)
@@ -156,9 +54,3 @@ theme_override_styles/background = SubResource("StyleBoxFlat_qhqgy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dqkch")
 value = 100.0
 show_percentage = false
-
-[node name="Mayor" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(3, -2)
-sprite_frames = SubResource("SpriteFrames_u2ulf")
-animation = &"walk"

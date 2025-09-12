@@ -1,7 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://c75h0hxws8tu1"]
+[gd_scene load_steps=36 format=3 uid="uid://c75h0hxws8tu1"]
 
 [ext_resource type="Script" uid="uid://cols3mjtd2tg5" path="res://scripts/mob.gd" id="1_bsing"]
-[ext_resource type="Texture2D" uid="uid://btf2qhea215yn" path="res://assets/tiny_dungeon/Tiles/tile_0096.png" id="2_0gehn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ubaqv"]
 radius = 12.0
@@ -258,7 +257,3 @@ unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8tra7")
 animation = &"idle_up"
-
-[node name="Tile0096" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
-texture = ExtResource("2_0gehn")

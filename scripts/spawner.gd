@@ -13,8 +13,8 @@ func spawn_mob(mob_type, num_mobs, wait_time):
 	counter += 1
 	%Timer.wait_time = wait_time
 	var new_mob = mob_scenes[mob_type].instantiate()
-	%PathFollow2D.progress_ratio = randf()
-	new_mob.global_position = %PathFollow2D.global_position
+	%MobSpawnPoint.progress_ratio = randf()
+	new_mob.global_position = %MobSpawnPoint.global_position
 	add_child(new_mob)
 	
 	if counter >= num_mobs:
