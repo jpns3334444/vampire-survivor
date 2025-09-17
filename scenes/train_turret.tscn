@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwnt5hmcnqxth"]
+
+[ext_resource type="Script" uid="uid://c0a5qffuueq40" path="res://scripts/train.gd" id="1_2mhcq"]
+[ext_resource type="PackedScene" uid="uid://bxlr7ph2x8v5k" path="res://scenes/gun.tscn" id="2_svb7o"]
+[ext_resource type="Texture2D" uid="uid://beqks4n5dmjve" path="res://assets/train/train_turret_body1.png" id="3_5mctg"]
+
+[node name="Train" type="PathFollow2D"]
+rotation = 1.5708
+progress = 50.0
+script = ExtResource("1_2mhcq")
+
+[node name="Gun" parent="." instance=ExtResource("2_svb7o")]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("3_5mctg")

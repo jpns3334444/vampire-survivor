@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://c75h0hxws8tu1"]
+
+[ext_resource type="Script" uid="uid://cols3mjtd2tg5" path="res://scripts/mob.gd" id="1_hwuep"]
+[ext_resource type="Texture2D" uid="uid://8lcprjsgpli5" path="res://assets/STRANDED - Insect Enemy Pack/Small Bug/Small Insect with shadow 20x28.png" id="2_v0cvq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubaqv"]
+radius = 4.12311
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwuep"]
+atlas = ExtResource("2_v0cvq")
+region = Rect2(0, 56, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0cvq"]
+atlas = ExtResource("2_v0cvq")
+region = Rect2(20, 56, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuyg0"]
+atlas = ExtResource("2_v0cvq")
+region = Rect2(40, 56, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjgat"]
+atlas = ExtResource("2_v0cvq")
+region = Rect2(60, 56, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cetdk"]
+atlas = ExtResource("2_v0cvq")
+region = Rect2(0, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40gdh"]
+atlas = ExtResource("2_v0cvq")
+region = Rect2(20, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkdvs"]
+atlas = ExtResource("2_v0cvq")
+region = Rect2(40, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grua2"]
+atlas = ExtResource("2_v0cvq")
+region = Rect2(60, 0, 20, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xuyg0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwuep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0cvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuyg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjgat")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cetdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40gdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkdvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grua2")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[node name="mob" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+platform_floor_layers = 4294967040
+script = ExtResource("1_hwuep")
+health = 2
+move_speed = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2.38419e-07)
+rotation = 0.0428398
+shape = SubResource("CircleShape2D_ubaqv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -3)
+sprite_frames = SubResource("SpriteFrames_xuyg0")
+animation = &"death"
+frame_progress = 0.439445

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5nrmp7xw62ba"]
+
+[ext_resource type="Script" uid="uid://c0a5qffuueq40" path="res://scripts/train.gd" id="1_xnvws"]
+[ext_resource type="Texture2D" uid="uid://2wwainbhheap" path="res://assets/train/train_front1.png" id="2_xnvws"]
+
+[node name="Train" type="PathFollow2D"]
+rotation = 1.5708
+progress = 0.2
+script = ExtResource("1_xnvws")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_xnvws")

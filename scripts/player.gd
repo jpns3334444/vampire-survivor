@@ -12,8 +12,8 @@ var current_xp = 0
 @export var damage_rate: float = 5.0
 
 func _ready():
-	#%Mayor.play("idle")
 	add_to_group("player")
+	%HPBar.play("100")
 
 func _physics_process(delta):
 

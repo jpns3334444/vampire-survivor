@@ -1,10 +1,10 @@
 extends Node2D
 
 func _ready():
-	$Forge.level_up.connect(_on_player_level_up)
-	$Forge.health_depleted.connect(_on_health_depleted)
-	%ForgeSprite.play("spawn")
-	%ForgeSprite.play("idle")
+	%Forge.level_up.connect(_on_player_level_up)
+	%Forge.health_depleted.connect(_on_health_depleted)
+	%Forge/ForgeSprite.play("spawn")
+	%Forge/ForgeSprite.play("idle")
 	
 func _on_player_level_up(_new_level):
 	get_tree().paused = true  # Pause the game

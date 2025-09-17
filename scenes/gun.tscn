@@ -1,12 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxlr7ph2x8v5k"]
 
 [ext_resource type="Script" uid="uid://bbrej68gfidbr" path="res://scripts/gun.gd" id="1_og67c"]
+[ext_resource type="Texture2D" uid="uid://cluamgmuwpdpk" path="res://assets/train/train_turret_gun1.png" id="2_og67c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
 radius = 388.012
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gvx52"]
-animations = []
 
 [node name="Gun" type="Area2D"]
 collision_layer = 0
@@ -18,18 +16,17 @@ shape = SubResource("CircleShape2D_dk5gl")
 
 [node name="WeaponPivot" type="Marker2D" parent="."]
 
-[node name="Pistol" type="AnimatedSprite2D" parent="WeaponPivot"]
-position = Vector2(33, 14)
-scale = Vector2(0.3, 0.34)
-sprite_frames = SubResource("SpriteFrames_gvx52")
-animation = &""
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(1, 1)
+scale = Vector2(0.883, 1)
+texture = ExtResource("2_og67c")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
 unique_name_in_owner = true
-position = Vector2(16.6667, -14.7059)
+position = Vector2(15.855, 0)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.168
+wait_time = 0.416
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
